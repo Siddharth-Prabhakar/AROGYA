@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="doctor-dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="header-content">
+            <span class="material-icons healthcare-logo-dash">local_hospital</span>
+            <h1>Doctor Dashboard</h1>
+        </div>
+        <div class="profile-section">
+            <img src="https://i.pravatar.cc/40?u=doc2" alt="Doctor Avatar" class="header-avatar">
+            <span id="doctorName">Dr. Siddharth</span>
+            <button id="logoutBtnDoctor" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon-wrapper videos">
+                    <span class="material-icons">videocam</span>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Videos</h3>
+                    <p id="totalVideos">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrapper consultations">
+                    <span class="material-icons">groups</span>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Consultations</h3>
+                    <p id="totalConsultations">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrapper earnings">
+                    <span class="material-icons">paid</span>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Earnings</h3>
+                    <p id="totalEarnings">$0</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-management">
+            <div class="video-header">
+                <h2>My Videos</h2>
+                <button class="upload-btn">
+                    <span class="material-icons">add_circle</span>
+                    Upload Video
+                </button>
+            </div>
+            <div class="video-list-container" id="doctorVideoList">
+                <!-- Videos will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="doctor-dashboard.js"></script>
+</body>
+</html> 

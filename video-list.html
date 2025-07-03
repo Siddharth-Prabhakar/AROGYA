@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+</head>
+<body>
+    <div class="video-list" id="videoList">
+        <!-- Videos will be dynamically inserted here -->
+    </div>
+
+    <script src="script.js"></script> <!-- Link to your existing JavaScript file -->
+    <script>
+        // Function to load videos based on the search term
+        function loadVideos(searchTerm) {
+            const videoList = document.getElementById('videoList');
+            videoList.innerHTML = ''; // Clear previous content
+
+            // Filter videos based on the search term
+            const filteredVideos = healthConditions.filter(condition =>
+                condition.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                condition.desc.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            if (filteredVideos.length > 0) {
+                filteredVideos.forEach(video => {
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    videoItem.innerHTML = `
+                        <h3>${video.name}</h3>
+                        <p>${video.desc}</p>
+                        <iframe 
+                            src="${video.videoUrl}" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        <p><strong>Verified by:</strong> ${video.expert}</p>
+                    `;
+                    videoList.appendChild(videoItem);
+                });
+            } else {
+                videoList.innerHTML = '<p>No videos found for your search.</p>';
+            }
+        }
+
+        // Get the search term from the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlParams.get('search');
+
+        // Load videos based on the search term
+        if (searchTerm) {
+            loadVideos(searchTerm);
+        } else {
+            document.getElementById('videoList').innerHTML = '<p>No search term provided.</p>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Care - AI Symptom Checker</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mind-care.css">
+</head>
+<body>
+    <header class="mind-care-header">
+        <a href="#" id="backLink" class="back-link">
+            <span class="material-icons">arrow_back</span>
+            Back
+        </a>
+        <h1>Mind Care AI</h1>
+        <div class="profile-section">
+            <span class="material-icons">account_circle</span>
+            <button id="logoutBtnMindCare" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="mind-care-container">
+        <div class="checker-card">
+            <h2>AI Symptom Checker</h2>
+            <p class="disclaimer">Describe your symptoms below. This is a wellness guide, not a medical diagnosis.</p>
+            
+            <textarea id="symptomInput" rows="6" placeholder="e.g., difficulty walking, fatigue..."></textarea>
+            
+            <button id="analyzeBtn">Analyze My Symptoms</button>
+
+            <div id="resultContainer" class="result-container">
+                <!-- Analysis results will be displayed here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="mind-care.js"></script>
+</body>
+</html> 

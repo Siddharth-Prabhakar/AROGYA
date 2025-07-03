@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya Health</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-container" id="loginPage">
+        <p class="smartearth-text">SmartEarth 2025</p>
+        <div class="login-card">
+            <span class="material-icons healthcare-logo">local_hospital</span>
+            <h2>Arogya</h2>
+            <p>Secure Medical Access Portal</p>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <span class="material-icons toggle-password" id="togglePassword">visibility_off</span>
+                </div>
+            </div>
+            <button class="role-btn patient-btn" onclick="showMainPage('patient')">
+                <span class="btn-icon">👤</span> Patient Login
+            </button>
+            <button class="role-btn doctor-btn" onclick="showMainPage('doctor')">
+                <span class="btn-icon">🩺</span> Medical Professional Login
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Interface -->
+    <div class="main-container" id="mainPage">
+        <header class="main-header">
+            <h2>Patient Dashboard</h2>
+            <div class="profile-section">
+                <span class="material-icons">account_circle</span>
+                <button id="logoutBtnPatient" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <form class="search-container" id="searchForm">
+            <input type="text" class="search-bar" placeholder="Search health concerns..." id="searchInput">
+            <button type="submit" class="search-btn"><span class="material-icons">search</span></button>
+            <div class="suggestions-box" id="suggestions"></div>
+        </form>
+
+        <div class="trending-problems">
+            <h2>Trending Health Problems</h2>
+            <p>Explore common health concerns and find expert advice.</p>
+        </div>
+
+        <div class="scroll-container-wrapper">
+            <div class="health-scroll" id="healthScroll"></div>
+            <button class="scroll-arrow prev-arrow" id="healthPrev">◀</button>
+            <button class="scroll-arrow next-arrow" id="healthNext">▶</button>
+            <div class="pagination-container" id="healthPagination"></div>
+        </div>
+
+        <!-- Trending Medicines -->
+        <div class="trending-medicines">
+            <h2>Trending Medicines</h2>
+            <p>Explore a selection of trending medicines.</p>
+        </div>
+
+        <div class="scroll-container-wrapper">
+            <div class="medicine-scroll" id="medicineScroll"></div>
+            <button class="scroll-arrow prev-arrow" id="medicinePrev">◀</button>
+            <button class="scroll-arrow next-arrow" id="medicineNext">▶</button>
+            <div class="pagination-container" id="medicinePagination"></div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button id="askAiBtn" class="fab-chip">🧠 Ask AI</button>
+
+    <!-- Consultation Modal -->
+    <div class="consultation-modal" id="consultationModal">
+        <div class="modal-content">
+            <h3 id="diseaseTitle">Health Condition</h3>
+
+            <div class="video-placeholder">
+                <span class="material-icons" style="font-size: 3rem">ondemand_video</span>
+                <p>Educational Video Content</p>
+            </div>
+
+            <div class="expert-info">
+                <h4>Verified by:</h4>
+                <p id="expertName">Amar kaushik</p>
+                <p id="expertCredentials">MD, General Medicine</p>
+                <p>12+ years experience</p>
+            </div>
+
+            <form class="consultation-form" onsubmit="scheduleConsultation(event)">
+                <h4>Schedule Consultation</h4>
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <div id="fullNameError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" placeholder="Age" min="1" required>
+                    <div id="ageError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <div id="genderError" class="error-message"></div>
+                </div>
+                <div class="form-group form-group-textarea">
+                    <label for="concerns">Health Concerns:</label>
+                    <textarea id="concerns" placeholder="Describe your health concerns..." rows="3" required></textarea>
+                    <div id="concernsError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="dateTime">Date and Time:</label>
+                    <input type="datetime-local" id="dateTime" required>
+                    <div id="dateTimeError" class="error-message"></div>
+                </div>
+
+                <button type="submit" class="role-btn patient-btn">
+                    Schedule Consultation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Popup -->
+    <div class="confirmation-popup" id="confirmationPopup">
+        <h3>Consultation Details</h3>
+        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+        <p><strong>Age:</strong> <span id="confirmAge"></span></p>
+        <p><strong>Gender:</strong> <span id="confirmGender"></span></p>
+        <p><strong>Concerns:</strong> <span id="confirmConcerns"></span></p>
+        <p><strong>Date/Time:</strong> <span id="confirmDateTime"></span></p>
+        <button onclick="closeConfirmation()" class="role-btn patient-btn">Close</button>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
