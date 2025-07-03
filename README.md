@@ -1,5 +1,7 @@
 # Arogya Health
 
+[Live Demo](https://siddharth-prabhakar.github.io/AROGYA/)
+
 Arogya Health is a modern, responsive web application for secure medical access, patient education, and professional healthcare management. It features a patient dashboard, doctor dashboard, AI symptom checker, and more—all with a beautiful, user-friendly interface.
 
 ## Features
