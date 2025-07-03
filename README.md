@@ -15,7 +15,7 @@ Arogya Health is a modern, responsive web application for secure medical access,
 ## Getting Started
 1. Clone or download this repository.
 2. Open `index.html` in your browser.
-3. Use the following demo credentials:
+3. Use the following demo credentials
    - **Patient:** 123
    - **Doctor:** 123
 
